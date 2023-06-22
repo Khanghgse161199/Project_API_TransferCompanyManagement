@@ -1,0 +1,14 @@
+E:\Project Code\API\ProjectSecond_ApI(ShippingCompanyManagement)\VireModel\bin\Debug\net6.0\VireModel.deps.json
+E:\Project Code\API\ProjectSecond_ApI(ShippingCompanyManagement)\VireModel\bin\Debug\net6.0\VireModel.runtimeconfig.json
+E:\Project Code\API\ProjectSecond_ApI(ShippingCompanyManagement)\VireModel\bin\Debug\net6.0\VireModel.dll
+E:\Project Code\API\ProjectSecond_ApI(ShippingCompanyManagement)\VireModel\bin\Debug\net6.0\VireModel.pdb
+E:\Project Code\API\ProjectSecond_ApI(ShippingCompanyManagement)\VireModel\obj\Debug\net6.0\VireModel.csproj.AssemblyReference.cache
+E:\Project Code\API\ProjectSecond_ApI(ShippingCompanyManagement)\VireModel\obj\Debug\net6.0\VireModel.GeneratedMSBuildEditorConfig.editorconfig
+E:\Project Code\API\ProjectSecond_ApI(ShippingCompanyManagement)\VireModel\obj\Debug\net6.0\VireModel.AssemblyInfoInputs.cache
+E:\Project Code\API\ProjectSecond_ApI(ShippingCompanyManagement)\VireModel\obj\Debug\net6.0\VireModel.AssemblyInfo.cs
+E:\Project Code\API\ProjectSecond_ApI(ShippingCompanyManagement)\VireModel\obj\Debug\net6.0\VireModel.csproj.CoreCompileInputs.cache
+E:\Project Code\API\ProjectSecond_ApI(ShippingCompanyManagement)\VireModel\obj\Debug\net6.0\VireModel.dll
+E:\Project Code\API\ProjectSecond_ApI(ShippingCompanyManagement)\VireModel\obj\Debug\net6.0\refint\VireModel.dll
+E:\Project Code\API\ProjectSecond_ApI(ShippingCompanyManagement)\VireModel\obj\Debug\net6.0\VireModel.pdb
+E:\Project Code\API\ProjectSecond_ApI(ShippingCompanyManagement)\VireModel\obj\Debug\net6.0\VireModel.genruntimeconfig.cache
+E:\Project Code\API\ProjectSecond_ApI(ShippingCompanyManagement)\VireModel\obj\Debug\net6.0\ref\VireModel.dll

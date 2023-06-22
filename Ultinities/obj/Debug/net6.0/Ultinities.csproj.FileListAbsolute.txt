@@ -1,0 +1,63 @@
+E:\Project Code\API\ProjectSecond_ApI(ShippingCompanyManagement)\Ultinities\bin\Debug\net6.0\Ultinities.deps.json
+E:\Project Code\API\ProjectSecond_ApI(ShippingCompanyManagement)\Ultinities\bin\Debug\net6.0\Ultinities.runtimeconfig.json
+E:\Project Code\API\ProjectSecond_ApI(ShippingCompanyManagement)\Ultinities\bin\Debug\net6.0\Ultinities.dll
+E:\Project Code\API\ProjectSecond_ApI(ShippingCompanyManagement)\Ultinities\bin\Debug\net6.0\Ultinities.pdb
+E:\Project Code\API\ProjectSecond_ApI(ShippingCompanyManagement)\Ultinities\obj\Debug\net6.0\Ultinities.csproj.AssemblyReference.cache
+E:\Project Code\API\ProjectSecond_ApI(ShippingCompanyManagement)\Ultinities\obj\Debug\net6.0\Ultinities.GeneratedMSBuildEditorConfig.editorconfig
+E:\Project Code\API\ProjectSecond_ApI(ShippingCompanyManagement)\Ultinities\obj\Debug\net6.0\Ultinities.AssemblyInfoInputs.cache
+E:\Project Code\API\ProjectSecond_ApI(ShippingCompanyManagement)\Ultinities\obj\Debug\net6.0\Ultinities.AssemblyInfo.cs
+E:\Project Code\API\ProjectSecond_ApI(ShippingCompanyManagement)\Ultinities\obj\Debug\net6.0\Ultinities.csproj.CoreCompileInputs.cache
+E:\Project Code\API\ProjectSecond_ApI(ShippingCompanyManagement)\Ultinities\obj\Debug\net6.0\Ultinities.dll
+E:\Project Code\API\ProjectSecond_ApI(ShippingCompanyManagement)\Ultinities\obj\Debug\net6.0\refint\Ultinities.dll
+E:\Project Code\API\ProjectSecond_ApI(ShippingCompanyManagement)\Ultinities\obj\Debug\net6.0\Ultinities.pdb
+E:\Project Code\API\ProjectSecond_ApI(ShippingCompanyManagement)\Ultinities\obj\Debug\net6.0\Ultinities.genruntimeconfig.cache
+E:\Project Code\API\ProjectSecond_ApI(ShippingCompanyManagement)\Ultinities\obj\Debug\net6.0\ref\Ultinities.dll
+E:\Project Code\API\Project_Second(ShippingCompanyManagement)\Ultinities\bin\Debug\net6.0\ProjectSecond_ApI(ShippingCompanyManagement).deps.json
+E:\Project Code\API\Project_Second(ShippingCompanyManagement)\Ultinities\bin\Debug\net6.0\ProjectSecond_ApI(ShippingCompanyManagement).runtimeconfig.json
+E:\Project Code\API\Project_Second(ShippingCompanyManagement)\Ultinities\bin\Debug\net6.0\appsettings.Development.json
+E:\Project Code\API\Project_Second(ShippingCompanyManagement)\Ultinities\bin\Debug\net6.0\appsettings.json
+E:\Project Code\API\Project_Second(ShippingCompanyManagement)\Ultinities\bin\Debug\net6.0\ProjectSecond_ApI(ShippingCompanyManagement).exe
+E:\Project Code\API\Project_Second(ShippingCompanyManagement)\Ultinities\bin\Debug\net6.0\Ultinities.deps.json
+E:\Project Code\API\Project_Second(ShippingCompanyManagement)\Ultinities\bin\Debug\net6.0\Ultinities.runtimeconfig.json
+E:\Project Code\API\Project_Second(ShippingCompanyManagement)\Ultinities\bin\Debug\net6.0\Ultinities.dll
+E:\Project Code\API\Project_Second(ShippingCompanyManagement)\Ultinities\bin\Debug\net6.0\Ultinities.pdb
+E:\Project Code\API\Project_Second(ShippingCompanyManagement)\Ultinities\bin\Debug\net6.0\DataService.dll
+E:\Project Code\API\Project_Second(ShippingCompanyManagement)\Ultinities\bin\Debug\net6.0\ProjectSecond_ApI(ShippingCompanyManagement).dll
+E:\Project Code\API\Project_Second(ShippingCompanyManagement)\Ultinities\bin\Debug\net6.0\Services.dll
+E:\Project Code\API\Project_Second(ShippingCompanyManagement)\Ultinities\bin\Debug\net6.0\ViewModel.dll
+E:\Project Code\API\Project_Second(ShippingCompanyManagement)\Ultinities\bin\Debug\net6.0\DataService.pdb
+E:\Project Code\API\Project_Second(ShippingCompanyManagement)\Ultinities\bin\Debug\net6.0\ProjectSecond_ApI(ShippingCompanyManagement).pdb
+E:\Project Code\API\Project_Second(ShippingCompanyManagement)\Ultinities\bin\Debug\net6.0\Services.pdb
+E:\Project Code\API\Project_Second(ShippingCompanyManagement)\Ultinities\bin\Debug\net6.0\ViewModel.pdb
+E:\Project Code\API\Project_Second(ShippingCompanyManagement)\Ultinities\obj\Debug\net6.0\Ultinities.csproj.AssemblyReference.cache
+E:\Project Code\API\Project_Second(ShippingCompanyManagement)\Ultinities\obj\Debug\net6.0\Ultinities.GeneratedMSBuildEditorConfig.editorconfig
+E:\Project Code\API\Project_Second(ShippingCompanyManagement)\Ultinities\obj\Debug\net6.0\Ultinities.AssemblyInfoInputs.cache
+E:\Project Code\API\Project_Second(ShippingCompanyManagement)\Ultinities\obj\Debug\net6.0\Ultinities.AssemblyInfo.cs
+E:\Project Code\API\Project_Second(ShippingCompanyManagement)\Ultinities\obj\Debug\net6.0\Ultinities.csproj.CoreCompileInputs.cache
+E:\Project Code\API\Project_Second(ShippingCompanyManagement)\Ultinities\obj\Debug\net6.0\Ultinities.csproj.CopyComplete
+E:\Project Code\API\Project_Second(ShippingCompanyManagement)\Ultinities\obj\Debug\net6.0\Ultinities.dll
+E:\Project Code\API\Project_Second(ShippingCompanyManagement)\Ultinities\obj\Debug\net6.0\refint\Ultinities.dll
+E:\Project Code\API\Project_Second(ShippingCompanyManagement)\Ultinities\obj\Debug\net6.0\Ultinities.pdb
+E:\Project Code\API\Project_Second(ShippingCompanyManagement)\Ultinities\obj\Debug\net6.0\Ultinities.genruntimeconfig.cache
+E:\Project Code\API\Project_Second(ShippingCompanyManagement)\Ultinities\obj\Debug\net6.0\ref\Ultinities.dll
+E:\Project Code\Asp.net API\Project_Second(ShippingCompanyManagement)\Ultinities\bin\Debug\net6.0\Ultinities.deps.json
+E:\Project Code\Asp.net API\Project_Second(ShippingCompanyManagement)\Ultinities\bin\Debug\net6.0\Ultinities.runtimeconfig.json
+E:\Project Code\Asp.net API\Project_Second(ShippingCompanyManagement)\Ultinities\bin\Debug\net6.0\Ultinities.dll
+E:\Project Code\Asp.net API\Project_Second(ShippingCompanyManagement)\Ultinities\bin\Debug\net6.0\Ultinities.pdb
+E:\Project Code\Asp.net API\Project_Second(ShippingCompanyManagement)\Ultinities\bin\Debug\net6.0\DataService.dll
+E:\Project Code\Asp.net API\Project_Second(ShippingCompanyManagement)\Ultinities\bin\Debug\net6.0\Services.dll
+E:\Project Code\Asp.net API\Project_Second(ShippingCompanyManagement)\Ultinities\bin\Debug\net6.0\ViewModel.dll
+E:\Project Code\Asp.net API\Project_Second(ShippingCompanyManagement)\Ultinities\bin\Debug\net6.0\DataService.pdb
+E:\Project Code\Asp.net API\Project_Second(ShippingCompanyManagement)\Ultinities\bin\Debug\net6.0\Services.pdb
+E:\Project Code\Asp.net API\Project_Second(ShippingCompanyManagement)\Ultinities\bin\Debug\net6.0\ViewModel.pdb
+E:\Project Code\Asp.net API\Project_Second(ShippingCompanyManagement)\Ultinities\obj\Debug\net6.0\Ultinities.csproj.AssemblyReference.cache
+E:\Project Code\Asp.net API\Project_Second(ShippingCompanyManagement)\Ultinities\obj\Debug\net6.0\Ultinities.GeneratedMSBuildEditorConfig.editorconfig
+E:\Project Code\Asp.net API\Project_Second(ShippingCompanyManagement)\Ultinities\obj\Debug\net6.0\Ultinities.AssemblyInfoInputs.cache
+E:\Project Code\Asp.net API\Project_Second(ShippingCompanyManagement)\Ultinities\obj\Debug\net6.0\Ultinities.AssemblyInfo.cs
+E:\Project Code\Asp.net API\Project_Second(ShippingCompanyManagement)\Ultinities\obj\Debug\net6.0\Ultinities.csproj.CoreCompileInputs.cache
+E:\Project Code\Asp.net API\Project_Second(ShippingCompanyManagement)\Ultinities\obj\Debug\net6.0\Ultinities.csproj.CopyComplete
+E:\Project Code\Asp.net API\Project_Second(ShippingCompanyManagement)\Ultinities\obj\Debug\net6.0\Ultinities.dll
+E:\Project Code\Asp.net API\Project_Second(ShippingCompanyManagement)\Ultinities\obj\Debug\net6.0\refint\Ultinities.dll
+E:\Project Code\Asp.net API\Project_Second(ShippingCompanyManagement)\Ultinities\obj\Debug\net6.0\Ultinities.pdb
+E:\Project Code\Asp.net API\Project_Second(ShippingCompanyManagement)\Ultinities\obj\Debug\net6.0\Ultinities.genruntimeconfig.cache
+E:\Project Code\Asp.net API\Project_Second(ShippingCompanyManagement)\Ultinities\obj\Debug\net6.0\ref\Ultinities.dll

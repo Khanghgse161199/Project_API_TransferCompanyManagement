@@ -1,0 +1,25 @@
+#inputCutom input{
+    text-align: left;
+    width: 400px;
+    height: 50px;
+    background-color: #2878EB;
+    border: none;
+    color: black;
+    font-weight: 800;
+    font-size: x-large;
+    opacity: 0.5;
+    font-display: initial;
+    margin-top: 20px;
+}
+#inputCutom h4{
+    font-size: large;
+}
+#inputCutom input:focus{
+    border: none;
+    outline: none;
+}
+
+#inputCutom{
+    background-color: white;
+    
+}

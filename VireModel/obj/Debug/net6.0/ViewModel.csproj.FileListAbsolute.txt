@@ -1,0 +1,28 @@
+E:\Project Code\API\Project_Second(ShippingCompanyManagement)\VireModel\bin\Debug\net6.0\ViewModel.deps.json
+E:\Project Code\API\Project_Second(ShippingCompanyManagement)\VireModel\bin\Debug\net6.0\ViewModel.runtimeconfig.json
+E:\Project Code\API\Project_Second(ShippingCompanyManagement)\VireModel\bin\Debug\net6.0\ViewModel.dll
+E:\Project Code\API\Project_Second(ShippingCompanyManagement)\VireModel\bin\Debug\net6.0\ViewModel.pdb
+E:\Project Code\API\Project_Second(ShippingCompanyManagement)\VireModel\obj\Debug\net6.0\ViewModel.csproj.AssemblyReference.cache
+E:\Project Code\API\Project_Second(ShippingCompanyManagement)\VireModel\obj\Debug\net6.0\ViewModel.GeneratedMSBuildEditorConfig.editorconfig
+E:\Project Code\API\Project_Second(ShippingCompanyManagement)\VireModel\obj\Debug\net6.0\ViewModel.AssemblyInfoInputs.cache
+E:\Project Code\API\Project_Second(ShippingCompanyManagement)\VireModel\obj\Debug\net6.0\ViewModel.AssemblyInfo.cs
+E:\Project Code\API\Project_Second(ShippingCompanyManagement)\VireModel\obj\Debug\net6.0\ViewModel.csproj.CoreCompileInputs.cache
+E:\Project Code\API\Project_Second(ShippingCompanyManagement)\VireModel\obj\Debug\net6.0\ViewModel.dll
+E:\Project Code\API\Project_Second(ShippingCompanyManagement)\VireModel\obj\Debug\net6.0\refint\ViewModel.dll
+E:\Project Code\API\Project_Second(ShippingCompanyManagement)\VireModel\obj\Debug\net6.0\ViewModel.pdb
+E:\Project Code\API\Project_Second(ShippingCompanyManagement)\VireModel\obj\Debug\net6.0\ViewModel.genruntimeconfig.cache
+E:\Project Code\API\Project_Second(ShippingCompanyManagement)\VireModel\obj\Debug\net6.0\ref\ViewModel.dll
+E:\Project Code\Asp.net API\Project_Second(ShippingCompanyManagement)\VireModel\bin\Debug\net6.0\ViewModel.deps.json
+E:\Project Code\Asp.net API\Project_Second(ShippingCompanyManagement)\VireModel\bin\Debug\net6.0\ViewModel.runtimeconfig.json
+E:\Project Code\Asp.net API\Project_Second(ShippingCompanyManagement)\VireModel\bin\Debug\net6.0\ViewModel.dll
+E:\Project Code\Asp.net API\Project_Second(ShippingCompanyManagement)\VireModel\bin\Debug\net6.0\ViewModel.pdb
+E:\Project Code\Asp.net API\Project_Second(ShippingCompanyManagement)\VireModel\obj\Debug\net6.0\ViewModel.csproj.AssemblyReference.cache
+E:\Project Code\Asp.net API\Project_Second(ShippingCompanyManagement)\VireModel\obj\Debug\net6.0\ViewModel.GeneratedMSBuildEditorConfig.editorconfig
+E:\Project Code\Asp.net API\Project_Second(ShippingCompanyManagement)\VireModel\obj\Debug\net6.0\ViewModel.AssemblyInfoInputs.cache
+E:\Project Code\Asp.net API\Project_Second(ShippingCompanyManagement)\VireModel\obj\Debug\net6.0\ViewModel.AssemblyInfo.cs
+E:\Project Code\Asp.net API\Project_Second(ShippingCompanyManagement)\VireModel\obj\Debug\net6.0\ViewModel.csproj.CoreCompileInputs.cache
+E:\Project Code\Asp.net API\Project_Second(ShippingCompanyManagement)\VireModel\obj\Debug\net6.0\ViewModel.dll
+E:\Project Code\Asp.net API\Project_Second(ShippingCompanyManagement)\VireModel\obj\Debug\net6.0\refint\ViewModel.dll
+E:\Project Code\Asp.net API\Project_Second(ShippingCompanyManagement)\VireModel\obj\Debug\net6.0\ViewModel.pdb
+E:\Project Code\Asp.net API\Project_Second(ShippingCompanyManagement)\VireModel\obj\Debug\net6.0\ViewModel.genruntimeconfig.cache
+E:\Project Code\Asp.net API\Project_Second(ShippingCompanyManagement)\VireModel\obj\Debug\net6.0\ref\ViewModel.dll

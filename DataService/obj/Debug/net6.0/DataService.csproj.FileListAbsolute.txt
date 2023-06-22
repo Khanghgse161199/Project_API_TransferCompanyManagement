@@ -1,0 +1,42 @@
+E:\Project Code\API\ProjectSecond_ApI(ShippingCompanyManagement)\DataService\bin\Debug\net6.0\DataService.deps.json
+E:\Project Code\API\ProjectSecond_ApI(ShippingCompanyManagement)\DataService\bin\Debug\net6.0\DataService.runtimeconfig.json
+E:\Project Code\API\ProjectSecond_ApI(ShippingCompanyManagement)\DataService\bin\Debug\net6.0\DataService.dll
+E:\Project Code\API\ProjectSecond_ApI(ShippingCompanyManagement)\DataService\bin\Debug\net6.0\DataService.pdb
+E:\Project Code\API\ProjectSecond_ApI(ShippingCompanyManagement)\DataService\obj\Debug\net6.0\DataService.csproj.AssemblyReference.cache
+E:\Project Code\API\ProjectSecond_ApI(ShippingCompanyManagement)\DataService\obj\Debug\net6.0\DataService.GeneratedMSBuildEditorConfig.editorconfig
+E:\Project Code\API\ProjectSecond_ApI(ShippingCompanyManagement)\DataService\obj\Debug\net6.0\DataService.AssemblyInfoInputs.cache
+E:\Project Code\API\ProjectSecond_ApI(ShippingCompanyManagement)\DataService\obj\Debug\net6.0\DataService.AssemblyInfo.cs
+E:\Project Code\API\ProjectSecond_ApI(ShippingCompanyManagement)\DataService\obj\Debug\net6.0\DataService.csproj.CoreCompileInputs.cache
+E:\Project Code\API\ProjectSecond_ApI(ShippingCompanyManagement)\DataService\obj\Debug\net6.0\DataService.dll
+E:\Project Code\API\ProjectSecond_ApI(ShippingCompanyManagement)\DataService\obj\Debug\net6.0\refint\DataService.dll
+E:\Project Code\API\ProjectSecond_ApI(ShippingCompanyManagement)\DataService\obj\Debug\net6.0\DataService.pdb
+E:\Project Code\API\ProjectSecond_ApI(ShippingCompanyManagement)\DataService\obj\Debug\net6.0\DataService.genruntimeconfig.cache
+E:\Project Code\API\ProjectSecond_ApI(ShippingCompanyManagement)\DataService\obj\Debug\net6.0\ref\DataService.dll
+E:\Project Code\API\Project_Second(ShippingCompanyManagement)\DataService\bin\Debug\net6.0\DataService.deps.json
+E:\Project Code\API\Project_Second(ShippingCompanyManagement)\DataService\bin\Debug\net6.0\DataService.runtimeconfig.json
+E:\Project Code\API\Project_Second(ShippingCompanyManagement)\DataService\bin\Debug\net6.0\DataService.dll
+E:\Project Code\API\Project_Second(ShippingCompanyManagement)\DataService\bin\Debug\net6.0\DataService.pdb
+E:\Project Code\API\Project_Second(ShippingCompanyManagement)\DataService\obj\Debug\net6.0\DataService.csproj.AssemblyReference.cache
+E:\Project Code\API\Project_Second(ShippingCompanyManagement)\DataService\obj\Debug\net6.0\DataService.GeneratedMSBuildEditorConfig.editorconfig
+E:\Project Code\API\Project_Second(ShippingCompanyManagement)\DataService\obj\Debug\net6.0\DataService.AssemblyInfoInputs.cache
+E:\Project Code\API\Project_Second(ShippingCompanyManagement)\DataService\obj\Debug\net6.0\DataService.AssemblyInfo.cs
+E:\Project Code\API\Project_Second(ShippingCompanyManagement)\DataService\obj\Debug\net6.0\DataService.csproj.CoreCompileInputs.cache
+E:\Project Code\API\Project_Second(ShippingCompanyManagement)\DataService\obj\Debug\net6.0\DataService.dll
+E:\Project Code\API\Project_Second(ShippingCompanyManagement)\DataService\obj\Debug\net6.0\refint\DataService.dll
+E:\Project Code\API\Project_Second(ShippingCompanyManagement)\DataService\obj\Debug\net6.0\DataService.pdb
+E:\Project Code\API\Project_Second(ShippingCompanyManagement)\DataService\obj\Debug\net6.0\DataService.genruntimeconfig.cache
+E:\Project Code\API\Project_Second(ShippingCompanyManagement)\DataService\obj\Debug\net6.0\ref\DataService.dll
+E:\Project Code\Asp.net API\Project_Second(ShippingCompanyManagement)\DataService\bin\Debug\net6.0\DataService.deps.json
+E:\Project Code\Asp.net API\Project_Second(ShippingCompanyManagement)\DataService\bin\Debug\net6.0\DataService.runtimeconfig.json
+E:\Project Code\Asp.net API\Project_Second(ShippingCompanyManagement)\DataService\bin\Debug\net6.0\DataService.dll
+E:\Project Code\Asp.net API\Project_Second(ShippingCompanyManagement)\DataService\bin\Debug\net6.0\DataService.pdb
+E:\Project Code\Asp.net API\Project_Second(ShippingCompanyManagement)\DataService\obj\Debug\net6.0\DataService.csproj.AssemblyReference.cache
+E:\Project Code\Asp.net API\Project_Second(ShippingCompanyManagement)\DataService\obj\Debug\net6.0\DataService.GeneratedMSBuildEditorConfig.editorconfig
+E:\Project Code\Asp.net API\Project_Second(ShippingCompanyManagement)\DataService\obj\Debug\net6.0\DataService.AssemblyInfoInputs.cache
+E:\Project Code\Asp.net API\Project_Second(ShippingCompanyManagement)\DataService\obj\Debug\net6.0\DataService.AssemblyInfo.cs
+E:\Project Code\Asp.net API\Project_Second(ShippingCompanyManagement)\DataService\obj\Debug\net6.0\DataService.csproj.CoreCompileInputs.cache
+E:\Project Code\Asp.net API\Project_Second(ShippingCompanyManagement)\DataService\obj\Debug\net6.0\DataService.dll
+E:\Project Code\Asp.net API\Project_Second(ShippingCompanyManagement)\DataService\obj\Debug\net6.0\refint\DataService.dll
+E:\Project Code\Asp.net API\Project_Second(ShippingCompanyManagement)\DataService\obj\Debug\net6.0\DataService.pdb
+E:\Project Code\Asp.net API\Project_Second(ShippingCompanyManagement)\DataService\obj\Debug\net6.0\DataService.genruntimeconfig.cache
+E:\Project Code\Asp.net API\Project_Second(ShippingCompanyManagement)\DataService\obj\Debug\net6.0\ref\DataService.dll
