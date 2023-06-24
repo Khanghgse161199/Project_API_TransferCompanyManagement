@@ -28,7 +28,7 @@ namespace ProjectSecond_ApI_ShippingCompanyManagement_.Controllers
             if (!string.IsNullOrEmpty(tokenInHeader) && info != null)
             {
                 var checkToken = await _Auth.CheckTokenAsync(tokenInHeader);
-                if (checkToken.RoleName != "Manager" && checkToken.RoleName == "Emloyee")
+                if (checkToken.RoleName == "Manager" || checkToken.RoleName == "Emloyee")
                 {
                     if (ModelState.IsValid)
                     {
@@ -61,7 +61,7 @@ namespace ProjectSecond_ApI_ShippingCompanyManagement_.Controllers
                 var checkToken = await _Auth.CheckTokenAsync(tokenInHeader);
                 if (checkToken != null)
                 {
-                    if (checkToken.RoleName != "Manager" && checkToken.RoleName == "Emloyee")
+                    if (checkToken.RoleName == "Manager" || checkToken.RoleName == "Emloyee")
                     {
                         if (ModelState.IsValid)
                         {
@@ -94,7 +94,7 @@ namespace ProjectSecond_ApI_ShippingCompanyManagement_.Controllers
             if (!string.IsNullOrEmpty(tokenInHeader) && !string.IsNullOrEmpty(id))
             {
                 var checkToken = await _Auth.CheckTokenAsync(tokenInHeader);
-                if (checkToken.RoleName != "Manager" && checkToken.RoleName == "Emloyee")
+                if (checkToken.RoleName == "Manager" || checkToken.RoleName == "Emloyee")
                 {
                     if (ModelState.IsValid)
                     {
@@ -125,7 +125,7 @@ namespace ProjectSecond_ApI_ShippingCompanyManagement_.Controllers
             if (!string.IsNullOrEmpty(tokenInHeader) && info != null && !string.IsNullOrEmpty(id))
             {
                 var checkToken = await _Auth.CheckTokenAsync(tokenInHeader);
-                if (checkToken.RoleName != "Manager" && checkToken.RoleName == "Emloyee")
+                if (checkToken.RoleName == "Manager" || checkToken.RoleName == "Emloyee")
                 {
                     if (ModelState.IsValid) 
                     {

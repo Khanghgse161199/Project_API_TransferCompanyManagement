@@ -17,7 +17,7 @@ namespace Services.ContainerServices
         Task<bool> CreateContainerAysnc(string name, string categoryTranId, double weight);
         Task<List<ContainerViewModel>> GetAllContainerAsync();
         Task<bool> DeleteContainerAsync(string id);
-        Task<bool> UpdateContainerAsync(string id, string name, string categoryId, double weight);
+        Task<bool> UpdateContainerAsync(string id, string name, double weight);
         Task<ContainerViewModel> GetContainerByIdAsync(string id);
     }
     public class ContainerService: IContainerService
@@ -32,8 +32,9 @@ namespace Services.ContainerServices
         {
             if(!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(categoryTranId) && weight != default(double))
             {
+                var categoryexist = await _uow.CategoryContainers.FirstOfDefaultAsync(p => p.Id == categoryTranId && p.IsActive);
                 var ifExist = await _uow.Containers.FirstOfDefaultAsync(p => p.Name == name && p.IsActve);
-                if (ifExist == null)
+                if (ifExist == null && categoryexist != null)
                 {
                     var newContainer = new DataService.Entities.Container()
                     {
@@ -100,7 +101,7 @@ namespace Services.ContainerServices
             else return null;
         }
 
-        public async Task<bool> UpdateContainerAsync(string id, string name, string categoryId, double weight)
+        public async Task<bool> UpdateContainerAsync(string id, string name, double weight)
         {
             if (!string.IsNullOrEmpty(id))
             {
@@ -108,12 +109,7 @@ namespace Services.ContainerServices
                 if (checkExist == null) {
                     var currentContainer = await _uow.Containers.FirstOfDefaultAsync(p => p.Id == id && p.IsActve, "CategoryTrans");
                     if (currentContainer != null)
-                    {
-                        if (!string.IsNullOrEmpty(categoryId))
-                        {
-                            currentContainer.CategoryTransId = categoryId;
-                            currentContainer.LastUpdate = DateTime.Now;
-                        }
+                    {                  
                         if (weight > 0)
                         {
                             currentContainer.Weight = weight;

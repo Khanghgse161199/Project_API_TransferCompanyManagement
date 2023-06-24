@@ -85,34 +85,12 @@ namespace Services.CategoryContainerservices
         {
             if (!string.IsNullOrEmpty(id) && !string.IsNullOrEmpty(name))
             {
-                var workMappings = await _uow.WorkingMappings.GetAllAsync(p => p.Status > 1 && p.IsActive, null, "Container");
-                if(workMappings.Count > 0)
+                var Containers = await _uow.Containers.GetAllAsync(p => p.CategoryTransId == id && p.IsActve);
+                if(1 + 1 == 1)
                 {
-                    var checkExist = workMappings.Where(p => p.Container.CategoryTransId == id).FirstOrDefault();
-                    if(checkExist == null)
-                    {
-                        var currentCategoryTran = await _uow.CategoryContainers.FirstOfDefaultAsync(p => p.Id == id && p.IsActive);
-                        if (currentCategoryTran != null)
-                        {
-                            if (name != default(string))
-                            {
-                                var ifExist = await _uow.CategoryContainers.FirstOfDefaultAsync(p => p.Name == name && p.IsActive);
-                                if (ifExist == null)
-                                {
-                                    currentCategoryTran.Name = name;
-                                    currentCategoryTran.LastUpdate = DateTime.Now;
-                                }
-                                else return false;
-                            }
-                            else return false;
-                            _uow.CategoryContainers.update(currentCategoryTran);
-                            await _uow.SaveAsync();
-                            return true;
-                        }
-                        else return false;
-                    }else return false;
+
                 }
-                else
+                if (Containers == null || Containers.Count == 0)
                 {
                     var currentCategoryTran = await _uow.CategoryContainers.FirstOfDefaultAsync(p => p.Id == id && p.IsActive);
                     if (currentCategoryTran != null)
@@ -134,6 +112,7 @@ namespace Services.CategoryContainerservices
                     }
                     else return false;
                 }
+                else return false;
             }
             else return false;
         }
@@ -142,35 +121,22 @@ namespace Services.CategoryContainerservices
         {
             if (!string.IsNullOrEmpty(id))
             {
-                var workMappings = await _uow.WorkingMappings.GetAllAsync(p => p.Status > 1 && p.IsActive, null, "Container");
-                if (workMappings.Count > 0)
-                {
-                    var checkExist = workMappings.Where(p => p.Container.CategoryTransId == id).FirstOrDefault();
-                    if (checkExist == null)
-                    {
+                var Containers = await _uow.Containers.GetAllAsync(p => p.CategoryTransId == id && p.IsActve);
+                if (Containers == null || Containers.Count == 0)
+                { 
                         var currentCategoryTran = await _uow.CategoryContainers.FirstOfDefaultAsync(p => p.Id == id && p.IsActive);
                         if (currentCategoryTran != null)
                         {
                             currentCategoryTran.IsActive = false;
                             _uow.CategoryContainers.update(currentCategoryTran);
                             await _uow.SaveAsync();
-                            return true;
-                        }
-                        else return false;
+                            return true; 
                     }
                     else return false;
                 }
                 else
                 {
-                    var currentCategoryTran = await _uow.CategoryContainers.FirstOfDefaultAsync(p => p.Id == id && p.IsActive);
-                    if (currentCategoryTran != null)
-                    {
-                        currentCategoryTran.IsActive = false;
-                        _uow.CategoryContainers.update(currentCategoryTran);
-                        await _uow.SaveAsync();
-                        return true;
-                    }
-                    else return false;
+                    return false;
                 }
             }
             else return false;

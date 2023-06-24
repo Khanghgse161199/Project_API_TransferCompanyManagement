@@ -37,8 +37,9 @@ namespace Services.BlockServices
         {
             if (!string.IsNullOrEmpty(name) && weight != default(double) && !string.IsNullOrEmpty(categoryBlockId))
             {
+                var categoryExist = await _uow.CategoryBlocks.FirstOfDefaultAsync(p => p.Id == categoryBlockId && p.IsActive);
                 var ifExist = await _uow.Blocks.FirstOfDefaultAsync(p => p.Name == name);
-                if (ifExist == null)
+                if (ifExist == null && categoryExist != null)
                 {
                     var newBlock = new Block()
                     {
@@ -82,36 +83,71 @@ namespace Services.BlockServices
         {
             if (!string.IsNullOrEmpty(id))
             {
-
-                var currentOrderShipping = await _uow.OrderShippings.FirstOfDefaultAsync(p => p.BlockId == id && p.IsActive, "WorkMapping");
-                var ifExist = currentOrderShipping.WorkMapping.Status;
-                if(ifExist == 1)
+                OrderShipping currentOrderShipping = null;
+                int ifExist = 0;
+                try
                 {
-                    var currenntBlock = await _uow.Blocks.FirstOfDefaultAsync(p => p.Id == id);
-                    if (currenntBlock != null)
+                    currentOrderShipping = await _uow.OrderShippings.FirstOfDefaultAsync(p => p.BlockId == id && p.IsActive, "WorkMapping");
+                    ifExist = (int)currentOrderShipping.WorkMapping.Status;
+                    if (currentOrderShipping == null || ifExist == 1)
                     {
-                        if (!string.IsNullOrEmpty(name))
+                        var currenntBlock = await _uow.Blocks.FirstOfDefaultAsync(p => p.Id == id);
+                        if (currenntBlock != null)
                         {
-                            currenntBlock.Name = name;
-                            currenntBlock.LastUpdate = DateTime.Now;
+                            if (!string.IsNullOrEmpty(name))
+                            {
+                                currenntBlock.Name = name;
+                                currenntBlock.LastUpdate = DateTime.Now;
+                            }
+                            if (weight > 0)
+                            {
+                                currenntBlock.Weight = weight;
+                                currenntBlock.LastUpdate = DateTime.Now;
+                            }
+                            if (!string.IsNullOrEmpty(categoryBlockId))
+                            {
+                                currenntBlock.CategoryBlockId = categoryBlockId;
+                                currenntBlock.LastUpdate = DateTime.Now;
+                            }
+                            _uow.Blocks.update(currenntBlock);
+                            await _uow.SaveAsync();
+                            return true;
                         }
-                        if (weight > 0)
-                        {
-                            currenntBlock.Weight = weight;
-                            currenntBlock.LastUpdate = DateTime.Now;
-                        }
-                        if (!string.IsNullOrEmpty(categoryBlockId))
-                        {
-                            currenntBlock.CategoryBlockId = categoryBlockId;
-                            currenntBlock.LastUpdate = DateTime.Now;
-                        }
-                        _uow.Blocks.update(currenntBlock);
-                        await _uow.SaveAsync();
-                        return true;    
+                        else return false;
                     }
                     else return false;
                 }
-                else return false;
+                catch
+                {
+                    if (currentOrderShipping == null || ifExist == 1)
+                    {
+                        var currenntBlock = await _uow.Blocks.FirstOfDefaultAsync(p => p.Id == id);
+                        if (currenntBlock != null)
+                        {
+                            if (!string.IsNullOrEmpty(name))
+                            {
+                                currenntBlock.Name = name;
+                                currenntBlock.LastUpdate = DateTime.Now;
+                            }
+                            if (weight > 0)
+                            {
+                                currenntBlock.Weight = weight;
+                                currenntBlock.LastUpdate = DateTime.Now;
+                            }
+                            if (!string.IsNullOrEmpty(categoryBlockId))
+                            {
+                                currenntBlock.CategoryBlockId = categoryBlockId;
+                                currenntBlock.LastUpdate = DateTime.Now;
+                            }
+                            _uow.Blocks.update(currenntBlock);
+                            await _uow.SaveAsync();
+                            return true;
+                        }
+                        else return false;
+                    }
+                    else return false;
+                }
+               
             }
             else return false;
         }

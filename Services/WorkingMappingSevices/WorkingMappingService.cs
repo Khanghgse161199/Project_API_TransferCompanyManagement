@@ -20,7 +20,7 @@ namespace Services.WorkingMappingSevices
         Task<List<WorkMappingViewModel>> GetAllWorkMappingToRegisterAsync();
         Task<List<WorkingMappingOfEmployeeViewModel>> GetAllWorkingMappingOfEmployeeAsync(string employeeId);
         Task<bool> registerEmployeeWorkingMappingAsync(string idEmployee, string workingMappingId);
-        Task<bool> UpdateEmployeeWorkingMappingAsync(string id, string employeeId);
+        //Task<bool> UpdateEmployeeWorkingMappingAsync(string id, string employeeId);
         Task<bool> UpdateStatusWorkingMappingAsync(string id, status tmp);
         Task<bool> DeletWorkingMappingAsync(string id);
     }
@@ -55,6 +55,7 @@ namespace Services.WorkingMappingSevices
                     EmployeeId = employeeId,
                     TransitCarId = transitCarId,
                     ContainerId = containerId,
+                    RatingId = ratingId,
                     Status = (int)status.UnActive,
                     IsActive = true,
                     DateTimeCreate = DateTime.Now,
@@ -120,31 +121,40 @@ namespace Services.WorkingMappingSevices
             }
             else return null;
         }
-        public async Task<bool> UpdateEmployeeWorkingMappingAsync(string id, string employeeId) {
-            if (!string.IsNullOrEmpty(id))
-            {
-                var currentWorkingMapping = await _uow.WorkingMappings.FirstOfDefaultAsync(p => p.Id == id && p.IsActive && p.EmployeeId != null && p.Status == 1);
-                if (currentWorkingMapping != null )
-                {
-                    if (!string.IsNullOrEmpty(employeeId))
-                    {
-                        currentWorkingMapping.EmployeeId = employeeId;
-                        currentWorkingMapping.LastUpdate = DateTime.Now;
-                    }
+        //public async Task<bool> UpdateEmployeeWorkingMappingAsync(string id, string employeeId) {
+        //    if (!string.IsNullOrEmpty(id))
+        //    {
+        //        var currentEmployee = await _uow.Employees.FirstOfDefaultAsync(p => p.Id == employeeId && !p.IsWorking);
+        //        var currentWorkingMapping = await _uow.WorkingMappings.FirstOfDefaultAsync(p => p.Id == id && p.IsActive && p.Status == 1, "Employee");
+        //        if (currentWorkingMapping != null && currentEmployee != null)
+        //        {
+        //            if (!string.IsNullOrEmpty(employeeId))
+        //            {
+        //                currentWorkingMapping.EmployeeId = employeeId;
+        //                currentWorkingMapping.LastUpdate = DateTime.Now;
+        //                currentWorkingMapping.Employee.IsWorking = false;
+        //                _uow.Employees.Udpate(currentWorkingMapping.Employee);
+        //                await _uow.SaveAsync();
+        //            }
+        //            else
+        //            {
+        //                currentWorkingMapping.EmployeeId = employeeId;
+        //                currentWorkingMapping.LastUpdate = DateTime.Now;
+        //            }
 
-                    _uow.WorkingMappings.update(currentWorkingMapping);
-                    await _uow.SaveAsync();
-                    return true;
-                }
-                else return false;
-            }else return false;
-        }
+        //            _uow.WorkingMappings.update(currentWorkingMapping);
+        //            await _uow.SaveAsync();
+        //            return true;
+        //        }
+        //        else return false;
+        //    }else return false;
+        //}
 
         public async Task<bool> UpdateStatusWorkingMappingAsync(string id, status tmp)
         {
             if (!string.IsNullOrEmpty(id) && tmp != null && (int)tmp > 1 && (int)tmp <= 3)
             {
-                var currentWorkingMapping = await _uow.WorkingMappings.FirstOfDefaultAsync(p => p.Id == id && p.Status > 1 && p.IsActive && p.EmployeeId != null, "OrderShippings,TransitCar,Container,Employee");
+                var currentWorkingMapping = await _uow.WorkingMappings.FirstOfDefaultAsync(p => p.Id == id && p.Status >= 1 && p.IsActive && p.EmployeeId != null, "OrderShippings,TransitCar,Container,Employee");
                 if (currentWorkingMapping != null)
                 {
                     if ((int)tmp == 3)
@@ -152,14 +162,17 @@ namespace Services.WorkingMappingSevices
                         var ifExist = currentWorkingMapping.OrderShippings.Where(p => p.IsActive && !p.IsDone).FirstOrDefault();
                         if (ifExist == null)
                         {
-                            currentWorkingMapping.Status = 2;
+                            currentWorkingMapping.Status = 3;
                             _uow.WorkingMappings.update(currentWorkingMapping);
                             currentWorkingMapping.Container.IsWorking = false;
                             _uow.Containers.update(currentWorkingMapping.Container);
                             currentWorkingMapping.TransitCar.IsWorking = false;
                             _uow.TransitCars.update(currentWorkingMapping.TransitCar);
-                            currentWorkingMapping.Employee.IsWorking = false;
-                            _uow.Employees.Udpate(currentWorkingMapping.Employee);
+                            if(!string.IsNullOrEmpty(currentWorkingMapping.EmployeeId))
+                            {
+                                currentWorkingMapping.Employee.IsWorking = false;
+                                _uow.Employees.Udpate(currentWorkingMapping.Employee);
+                            }
                             await _uow.SaveAsync();
                             return true;
                         }
@@ -167,26 +180,30 @@ namespace Services.WorkingMappingSevices
                     }
                     if ((int)tmp == 2)
                     {
-                        currentWorkingMapping.Status = 2;
+                        if (currentWorkingMapping.OrderShippings.Where(p => !p.IsDone && p.IsActive).FirstOrDefault() != null)
+                        {
+                            currentWorkingMapping.Status = 2;
+                            _uow.WorkingMappings.update(currentWorkingMapping);
+                            currentWorkingMapping.Container.IsWorking = true;
+                            _uow.Containers.update(currentWorkingMapping.Container);
+                            currentWorkingMapping.TransitCar.IsWorking = true;
+                            _uow.TransitCars.update(currentWorkingMapping.TransitCar);
+                            currentWorkingMapping.Employee.IsWorking = true;
+                            _uow.Employees.Udpate(currentWorkingMapping.Employee);
+                            await _uow.SaveAsync();
+                            return true;
+                        }
+                        else return false;
+                    }
+                    else if ((int)tmp == 1)
+                    {
+                        currentWorkingMapping.Status = 1;
                         _uow.WorkingMappings.update(currentWorkingMapping);
                         currentWorkingMapping.Container.IsWorking = true;
                         _uow.Containers.update(currentWorkingMapping.Container);
                         currentWorkingMapping.TransitCar.IsWorking = true;
                         _uow.TransitCars.update(currentWorkingMapping.TransitCar);
                         currentWorkingMapping.Employee.IsWorking = true;
-                        _uow.Employees.Udpate(currentWorkingMapping.Employee);                     
-                        await _uow.SaveAsync();
-                        return true;
-                    }
-                    else if ((int)tmp == 1)
-                    {
-                        currentWorkingMapping.Status = 1;
-                        _uow.WorkingMappings.update(currentWorkingMapping);
-                        currentWorkingMapping.Container.IsWorking = false;
-                        _uow.Containers.update(currentWorkingMapping.Container);
-                        currentWorkingMapping.TransitCar.IsWorking = false;
-                        _uow.TransitCars.update(currentWorkingMapping.TransitCar);
-                        currentWorkingMapping.Employee.IsWorking = false;
                         _uow.Employees.Udpate(currentWorkingMapping.Employee);                      
                         await _uow.SaveAsync();
                         return true;
@@ -204,10 +221,12 @@ namespace Services.WorkingMappingSevices
         public async Task<bool> DeletWorkingMappingAsync(string id) {
             if (!string.IsNullOrEmpty(id))
             {
-                var currentWorkingMapping = await _uow.WorkingMappings.FirstOfDefaultAsync(p => p.Id == id && p.Status == 3 && p.IsActive);
+                var currentWorkingMapping = await _uow.WorkingMappings.FirstOfDefaultAsync(p => p.Id == id && p.Status == 3 && p.IsActive || p.Id == id && p.Status == 1 && p.EmployeeId == null && p.IsActive, "Rating");
                 if (currentWorkingMapping != null)
                 {
                     currentWorkingMapping.IsActive = false;
+                    currentWorkingMapping.Rating.IsActive = false;
+                    _uow.Ratings.update(currentWorkingMapping.Rating);
                     _uow.WorkingMappings.update(currentWorkingMapping);
                     await _uow.SaveAsync();
                     return true;

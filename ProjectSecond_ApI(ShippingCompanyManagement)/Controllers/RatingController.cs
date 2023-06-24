@@ -29,12 +29,12 @@ namespace ProjectSecond_ApI_ShippingCompanyManagement_.Controllers
                 var checkToken = await _Auth.CheckTokenAsync(tokenInHeader);
                 if (checkToken != null)
                 {
-                    if (checkToken.RoleName == "Manager" || checkToken.RoleName == "Eployee")
+                    if (checkToken.RoleName == "Manager" || checkToken.RoleName == "Admin")
                     {
                         if (ModelState.IsValid)
                         {
                             var isGets = await _ratingService.GetAllRatingAsynsc();
-                            if (isGets.Count > 0)
+                            if (isGets != null && isGets.Count > 0)
                             {
                                 return Ok(isGets);
                             }
@@ -86,8 +86,8 @@ namespace ProjectSecond_ApI_ShippingCompanyManagement_.Controllers
             else return NotFound();
         }
 
-        [HttpGet("GetRatingByWorkMapping")]
-        public async Task<IActionResult> GetRatingByWorkMapping(string id)
+        [HttpGet("GetRatingAboutEmployee")]
+        public async Task<IActionResult> GetRatingAboutEmployee(string id)
         {
             var tokenInHeader = Request.Headers["token"].ToString();
             if (!string.IsNullOrEmpty(tokenInHeader) && !string.IsNullOrEmpty(id))
@@ -97,7 +97,7 @@ namespace ProjectSecond_ApI_ShippingCompanyManagement_.Controllers
                 {
                     if (ModelState.IsValid)
                     {
-                        var isGet = await _ratingService.GetRatingOfWorkMapping(id);
+                        var isGet = await _ratingService.GetRatingAboutEmployeeAsync(id);
                         if (isGet != null)
                         {
                             return Ok(isGet);

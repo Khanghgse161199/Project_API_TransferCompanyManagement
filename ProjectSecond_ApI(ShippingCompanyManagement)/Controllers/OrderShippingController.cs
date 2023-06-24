@@ -24,8 +24,7 @@ namespace ProjectSecond_ApI_ShippingCompanyManagement_.Controllers
         [HttpPost("CreateOrderShiping")]
         public async Task<IActionResult> CreateOrderShiping(CreateOrderShippingViewModel info)
         {
-            string tokenInHeader = Request.Headers["token"].ToString();
-
+            string tokenInHeader = Request.Headers["token"].ToString(); 
             if (!string.IsNullOrEmpty(tokenInHeader) && info != null)
             {
                 var checkToken = await _Auth.CheckTokenAsync(tokenInHeader);
@@ -188,7 +187,7 @@ namespace ProjectSecond_ApI_ShippingCompanyManagement_.Controllers
             if (!string.IsNullOrEmpty(tokenInHeader) && info != null && !string.IsNullOrEmpty(id))
             {
                 var checkToken = await _Auth.CheckTokenAsync(tokenInHeader);
-                if (checkToken.RoleName == "Employee" || checkToken.RoleName == "Admin")
+                if (checkToken.RoleName == "Employee" || checkToken.RoleName == "Manager")
                 {
                     if (ModelState.IsValid)
                     {
@@ -219,7 +218,7 @@ namespace ProjectSecond_ApI_ShippingCompanyManagement_.Controllers
             if (!string.IsNullOrEmpty(tokenInHeader))
             {
                 var checkToken = await _Auth.CheckTokenAsync(tokenInHeader);
-                if (checkToken.RoleName == "Driver" || checkToken.RoleName == "Admin")
+                if (checkToken.RoleName == "Driver" || checkToken.RoleName == "Manager")
                 {
                     if (ModelState.IsValid)
                     {

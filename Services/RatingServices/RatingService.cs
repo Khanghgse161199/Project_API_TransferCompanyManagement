@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using DataService.Entities;
+using DataService.PageServices;
 using DataService.Repositories.UnitOfWork;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,7 @@ namespace Services.RatingServices
         Task<bool> CreateRatingAsync(string id);
         Task<List<RatingViewModel>> GetAllRatingAsynsc();
         Task<RatingViewModel> GetRatingById(string id);
-        Task<RatingViewModelWorkMapping> GetRatingOfWorkMapping(string id);
+        Task<List<RatingViewModelWorkMapping>> GetRatingAboutEmployeeAsync(string id);
         Task<bool> UpdateRatingAsync(string id, double ratingPoint, string comment, string imgUrl, string reciver);
         Task<bool> DeleteRatingAsync(string id);
     }
@@ -23,7 +24,6 @@ namespace Services.RatingServices
     {
         private readonly IUnitOfWork _uow;
         private readonly Mapper _Mapper;
-
         public RatingService(IUnitOfWork uow)
         {
             _uow = uow;
@@ -43,6 +43,8 @@ namespace Services.RatingServices
                 {
                     Id = id, 
                     Reciver = null,
+                    Comment = null,
+                    ImgUrl = null,
                     IsActive = true,    
                     RatingPoint = 0,
                     DateTimeCreate = DateTime.Now,
@@ -80,23 +82,48 @@ namespace Services.RatingServices
             else return null;
         }
 
-        public async Task<RatingViewModelWorkMapping> GetRatingOfWorkMapping(string id)
+        public async Task<List<RatingViewModelWorkMapping>> GetRatingAboutEmployeeAsync(string id)
         {
             if (!string.IsNullOrEmpty(id))
             {
-                var currentWorkingMapping = await _uow.WorkingMappings.FirstOfDefaultAsync(p => p.Id == id && p.IsActive && p.Status == 3, "Rating");
-                if(currentWorkingMapping != null)
+                var CurrentEmployee = await _uow.Employees.FirstOfDefaultAsync(p => p.Id == id, "WorkMappings,Acc");
+                if(CurrentEmployee != null)
                 {
-                    if(currentWorkingMapping.IsActive && currentWorkingMapping.Rating.RatingPoint > 0 && currentWorkingMapping.Rating.Reciver != null)
+                    if(CurrentEmployee.Acc.IsActive)
                     {
-                        return new RatingViewModelWorkMapping() { 
-                            Id = currentWorkingMapping.Rating.Id,
-                            RatingPoint = currentWorkingMapping.Rating.RatingPoint,
-                            Comment = currentWorkingMapping.Rating.Comment,
-                            ImgUrl = currentWorkingMapping.Rating.ImgUrl,
-                            Reciver = currentWorkingMapping.Rating.Reciver,
-                            DateTimeCreate = currentWorkingMapping.Rating.DateTimeCreate,                                             
-                        };
+                        List <RatingViewModelWorkMapping> tmp = new List <RatingViewModelWorkMapping>();
+                        var workingMappings = await _uow.WorkingMappings.GetAllAsync(p => p.EmployeeId == CurrentEmployee.Id && p.IsActive, null, "Rating");
+                        if (workingMappings != null)
+                        {
+                            foreach (var item in workingMappings)
+                            {
+                                if (item.Rating.RatingPoint > 0 && item.Rating.IsActive && item.Rating.Reciver != null)
+                                {
+                                    tmp.Add(new RatingViewModelWorkMapping
+                                    {
+                                        Id = item.Rating.Id,
+                                        RatingPoint = item.Rating.RatingPoint,
+                                        Comment = item.Rating.Comment,
+                                        ImgUrl = item.Rating.ImgUrl,
+                                        Reciver = item.Rating.Reciver,
+                                        DateTimeCreate = item.Rating.DateTimeCreate,
+                                    });
+                                }
+                            }
+                            var tmps = tmp.AsQueryable();
+                            if (tmps.Count() > 0)
+                            {
+                                tmps = tmps.OrderByDescending(x => x.DateTimeCreate);
+                                var newTmps = PaginateList<RatingViewModelWorkMapping>.CreatePaginateList(tmps, 1, 1);
+                                return newTmps.ToList();
+                            }
+                            else return null;
+                          
+                        }
+                        else
+                        {
+                            return null;
+                        }
                     }
                     else return null;
                 }
@@ -107,7 +134,7 @@ namespace Services.RatingServices
 
         public async Task<bool> UpdateRatingAsync(string id, double ratingPoint, string comment, string imgUrl, string reciver)
         {
-            if (!string.IsNullOrEmpty(id)) {
+            if (!string.IsNullOrEmpty(id) && ratingPoint >= 1 && ratingPoint <= 5) {
                 var ifExist = await _uow.WorkingMappings.FirstOfDefaultAsync(p => p.RatingId == id && p.Status == 3 && p.IsActive);
                 if(ifExist != null) {
                     var currentRating = await _uow.Ratings.FirstOfDefaultAsync(p => p.Id == id && p.IsActive);
@@ -160,7 +187,12 @@ namespace Services.RatingServices
                         currentRating.IsActive = false;
                         _uow.Ratings.update(currentRating);
                         await _uow.SaveAsync();
-                        return true;
+                        var isUpdate = await UpdateSummaryRatingWrokingMapping(currentRating.Id);
+                        if (isUpdate)
+                        {
+                            return true;
+                        }
+                        else return false;
                     }
                     else return false;
                 }
@@ -171,7 +203,7 @@ namespace Services.RatingServices
 
         private async Task<bool> UpdateSummaryRatingWrokingMapping(string id)
         {
-            var currentWorkingMapping = await _uow.WorkingMappings.FirstOfDefaultAsync(p => p.RatingId == id && p.Rating.IsActive && p.Status == 3, "Employee");
+            var currentWorkingMapping = await _uow.WorkingMappings.FirstOfDefaultAsync(p => p.RatingId == id && p.Status == 3, "Employee");
             if (currentWorkingMapping != null)
             {
                 var WorkingMappings = await _uow.WorkingMappings.GetAllAsync(p => p.EmployeeId == currentWorkingMapping.EmployeeId && p.IsActive && p.Status == 3, null, "Rating");
@@ -185,7 +217,7 @@ namespace Services.RatingServices
                     float count = 0;
                     foreach (var item in WorkingMappings)
                     {
-                        if(item.Rating.RatingPoint > 0)
+                        if(item.Rating.RatingPoint > 0 && item.Rating.IsActive)
                         {
                             if (item.Rating.RatingPoint == 1)
                             {

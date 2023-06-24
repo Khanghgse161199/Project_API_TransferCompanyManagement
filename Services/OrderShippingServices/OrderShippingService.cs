@@ -46,7 +46,7 @@ namespace Services.OrderDetailServices
         {
             if (!string.IsNullOrEmpty(orderId) && !string.IsNullOrEmpty(blockId) && !string.IsNullOrEmpty(workMappingId) && price > 0)
             {
-                var currentWorkMapping = await _uow.WorkingMappings.FirstOfDefaultAsync(p => p.Id == workMappingId && p.Status == 1 && p.IsActive, "Container");
+                var currentWorkMapping = await _uow.WorkingMappings.FirstOfDefaultAsync(p => p.Id == workMappingId && p.EmployeeId != null && p.Status == 1 && p.IsActive, "Container");
                 var currentBlock = await _uow.Blocks.FirstOfDefaultAsync(p => p.Id == blockId);
                 var currentMainOrder = await _uow.MainOrders.FirstOfDefaultAsync(p => p.Id == orderId && p.IsActive && !p.IsDone);
                 if(currentWorkMapping != null && currentBlock != null && currentMainOrder != null)
@@ -129,7 +129,7 @@ namespace Services.OrderDetailServices
         {
             if (!string.IsNullOrEmpty(id))
             {
-                var currentOrderDetail = await _uow.OrderShippings.FirstOfDefaultAsync(p => p.Id == id && p.IsActive && p.IsDone == true, "WorkMapping");
+                var currentOrderDetail = await _uow.OrderShippings.FirstOfDefaultAsync(p => p.Id == id && p.IsActive && !p.IsDone == true, "WorkMapping");
                 if (currentOrderDetail != null && currentOrderDetail.WorkMapping.Status == 1 && currentOrderDetail.WorkMapping.IsActive)
                 {
                     if (!string.IsNullOrEmpty(orderId))
@@ -169,6 +169,7 @@ namespace Services.OrderDetailServices
                 if (currentOrderDetail != null)
                 {
                     currentOrderDetail.IsDone = true;
+                    currentOrderDetail.DateTimeRecive = DateTime.Now;
                     _uow.OrderShippings.update(currentOrderDetail);
                     await _uow.SaveAsync();
                     return true;

@@ -59,7 +59,7 @@ namespace ProjectSecond_ApI_ShippingCompanyManagement_.Controllers
             if (!string.IsNullOrEmpty(tokenInHeader))
             {
                 var checkToken = await _Auth.CheckTokenAsync(tokenInHeader);
-                if (checkToken != null)
+                if(checkToken.RoleName == "Manager" || checkToken.RoleName == "Employee")
                 {
                         if (ModelState.IsValid)
                         {
@@ -90,7 +90,7 @@ namespace ProjectSecond_ApI_ShippingCompanyManagement_.Controllers
             if (!string.IsNullOrEmpty(tokenInHeader) && !string.IsNullOrEmpty(id))
             {
                 var checkToken = await _Auth.CheckTokenAsync(tokenInHeader);
-                if (checkToken != null)
+                if (checkToken.RoleName == "Manager" || checkToken.RoleName == "Employee")
                 {
                     if (ModelState.IsValid)
                     {
@@ -121,7 +121,7 @@ namespace ProjectSecond_ApI_ShippingCompanyManagement_.Controllers
             if (!string.IsNullOrEmpty(tokenInHeader) && info != null && !string.IsNullOrEmpty(id))
             {
                 var checkToken = await _Auth.CheckTokenAsync(tokenInHeader);
-                if (checkToken != null && checkToken.RoleName == "Manager")
+                if (checkToken.RoleName == "Admin" || checkToken.RoleName == "Manager")
                 {
                     if (ModelState.IsValid)
                     {
@@ -152,7 +152,7 @@ namespace ProjectSecond_ApI_ShippingCompanyManagement_.Controllers
             if (!string.IsNullOrEmpty(tokenInHeader) && !string.IsNullOrEmpty(id))
             {
                 var checkToken = await _Auth.CheckTokenAsync(tokenInHeader);
-                if (checkToken != null && checkToken.RoleName == "Manager")
+                if (checkToken.RoleName == "Admin" || checkToken.RoleName == "Manager")
                 {
                     if (ModelState.IsValid)
                     {

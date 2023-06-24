@@ -10,7 +10,6 @@ namespace ViewModel.Container
     public class UpdateContainerViewModel
     {
         public string name { get; set; }
-        public string CategoryTransId { get; set; }
         public double Weight { get; set; }
     }
 }

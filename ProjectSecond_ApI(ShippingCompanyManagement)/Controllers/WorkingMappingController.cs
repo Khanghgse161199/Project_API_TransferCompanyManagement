@@ -60,7 +60,7 @@ namespace ProjectSecond_ApI_ShippingCompanyManagement_.Controllers
                 var checkToken = await _Auth.CheckTokenAsync(tokenInHeader);
                 if (checkToken.RoleName == "Manager")
                 {
-                    if (checkToken != null && checkToken.RoleName == "Admin")
+                    if (checkToken.RoleName == "Admin" || checkToken.RoleName == "Manager")
                     {
                         if (ModelState.IsValid)
                         {
@@ -127,7 +127,7 @@ namespace ProjectSecond_ApI_ShippingCompanyManagement_.Controllers
                 var checkToken = await _Auth.CheckTokenAsync(tokenInHeader);
                 if (checkToken != null)
                 {
-                    if (checkToken.RoleName == "Driver" && checkToken.RoleName == "Admin")
+                    if (checkToken.RoleName == "Driver" || checkToken.RoleName == "Manager" || checkToken.RoleName == "Admin")
                     {
                         if (ModelState.IsValid)
                         {
@@ -199,7 +199,7 @@ namespace ProjectSecond_ApI_ShippingCompanyManagement_.Controllers
                 {
                     if (ModelState.IsValid)
                     {
-                        var isUpdate = await _workingMappingService.UpdateEmployeeWorkingMappingAsync(id, info.EmployeeId);
+                        var isUpdate = await _workingMappingService.registerEmployeeWorkingMappingAsync(id, info.EmployeeId);
                         if (isUpdate)
                         {
                             return Ok("Register Success");

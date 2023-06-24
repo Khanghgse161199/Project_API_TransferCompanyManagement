@@ -129,7 +129,7 @@ namespace ProjectSecond_ApI_ShippingCompanyManagement_.Controllers
                 {
                     if (ModelState.IsValid)
                     {
-                        var isUpdate = await _containerService.UpdateContainerAsync(id, info.name, info.CategoryTransId, info.Weight);
+                        var isUpdate = await _containerService.UpdateContainerAsync(id, info.name, info.Weight);
                         if (isUpdate)
                         {
                             return Ok("Update Success");

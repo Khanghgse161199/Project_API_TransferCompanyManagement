@@ -17,6 +17,9 @@ namespace VireModel.EmployeeViewModel
         public string Password { get; set; } = null!;
         [Required]
         [DataType(DataType.Text)]
+        public string RoleName { get; set; } = null!;
+        [Required]
+        [DataType(DataType.Text)]
         public string FullName { get; set; } = null!;
         [Required]
         [DataType(DataType.Text)]

@@ -172,7 +172,7 @@ namespace Services.OrderSerivces
                 bool check = await checkWorking(id);
                 if (check)
                 {
-                    var currentMainOrder = await _uow.MainOrders.FirstOfDefaultAsync(p => p.Id == id && !p.IsDone && p.IsActive);
+                    var currentMainOrder = await _uow.MainOrders.FirstOfDefaultAsync(p => p.Id == id && p.IsDone && p.IsActive);
                     if (currentMainOrder != null)
                     {
                         currentMainOrder.IsActive = false;

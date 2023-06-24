@@ -82,7 +82,7 @@ namespace Services.EmployeeServices
 
         public async Task<List<EmployeeViewModel>> GetAllEmployeeAsync()
         {
-            var allEmployees = await _uow.Employees.GetAllAsync(p => p.Acc.IsActive && p.Acc.RoleId == "1e2m3p4l5o6y7e8e");
+            var allEmployees = await _uow.Employees.GetAllAsync(p => p.Acc.IsActive, o => o.OrderBy(p => p.SummayRating));
             return _mapper.Map<List<EmployeeViewModel>>(allEmployees);
         }
 

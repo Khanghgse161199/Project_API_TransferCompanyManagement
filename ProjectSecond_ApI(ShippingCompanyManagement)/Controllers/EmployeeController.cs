@@ -38,7 +38,7 @@ namespace ProjectSecond_ApI_ShippingCompanyManagement_.Controllers
                     if (ModelState.IsValid)
                     {
                         var accId = Guid.NewGuid().ToString();
-                        var isCreateAcc = await _accountRepository.CreateAccountAsync(createEmployeeViewModel.Username, createEmployeeViewModel.Password, "Employee", accId);
+                        var isCreateAcc = await _accountRepository.CreateAccountAsync(createEmployeeViewModel.Username, createEmployeeViewModel.Password, createEmployeeViewModel.RoleName, accId);
                         if (isCreateAcc)
                         {
                             var mailToken = Guid.NewGuid().ToString();

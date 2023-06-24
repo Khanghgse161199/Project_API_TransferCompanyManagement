@@ -30,21 +30,25 @@ namespace Services.AccountServices
         {
             if (!string.IsNullOrEmpty(username) && !string.IsNullOrEmpty(password) && !string.IsNullOrEmpty(rolename))
             {
-                
-                var role = await _uow.Roles.FirstOfDefaultAsync(p => p.Name == rolename);
-                if (role != null)
+                var ifexist = await _uow.Accounts.FirstOfDefaultAsync(p => p.Username == username && p.IsActive);
+                if (ifexist == null)
                 {
-                    Account newAccount = new Account()
+                    var role = await _uow.Roles.FirstOfDefaultAsync(p => p.Name == rolename);
+                    if (role != null)
                     {
-                        Id = accId,
-                        Username = username,
-                        Password = _hashService.SHA256(password + key),
-                        RoleId = role.Id,
-                        IsActive = true
-                    };
-                    await _uow.Accounts.AddAsync(newAccount);
-                    await _uow.SaveAsync();
-                    return true;
+                        Account newAccount = new Account()
+                        {
+                            Id = accId,
+                            Username = username,
+                            Password = _hashService.SHA256(password + key),
+                            RoleId = role.Id,
+                            IsActive = true
+                        };
+                        await _uow.Accounts.AddAsync(newAccount);
+                        await _uow.SaveAsync();
+                        return true;
+                    }
+                else return false;
                 }
                 else return false;
             }

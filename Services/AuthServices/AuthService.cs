@@ -35,7 +35,7 @@ namespace Services.AuthServices
             if (!string.IsNullOrEmpty(loginEmployeeViewModel.username) && !string.IsNullOrEmpty(loginEmployeeViewModel.password))
             {
                 var hasAcc = await _uow.Accounts.FirstOfDefaultAsync(p => p.Username == loginEmployeeViewModel.username && p.Password == _hashService.SHA256(loginEmployeeViewModel.password + key) && p.IsActive, "Role");
-                if (hasAcc.Role.Name == "Admin" || hasAcc.Role.Name == "Employee")
+                if (hasAcc.Role.Name == "Admin" || hasAcc.Role.Name == "Manager" || hasAcc.Role.Name == "Employee" || hasAcc.Role.Name == "Driver")
                 {
                     var currentToken = await _uow.Tokens.FirstOfDefaultAsync(p => p.AccId == hasAcc.Id && p.EtisActive, "Acc");
                     if (currentToken != null)
